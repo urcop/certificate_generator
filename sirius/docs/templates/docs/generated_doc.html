@@ -1,0 +1,60 @@
+{% extends 'docs/base.html' %}
+
+{% block title %}Документ{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if doc.type_doc == 'WD' %}
+            <div class="title">
+                <h2 align="right">ООО «Сириус»</h2>
+                <h2 align="right"><u>{{ doc.date }}</u> № <u>{{ doc.pk }}</u></h2>
+                <h2 align="center">СПРАВКА</h2>
+            </div>
+            <div class="content">
+                <p class="paragraph">Дана сотруднику - </p>
+                <p class="under">{% for emp in doc.addressee.all %}
+                    {{ emp }}{% endfor %}</p>
+                <p>в том что, что он (она) действительно работает в ООО «Сириус» на должности</p>
+                <p class="under">{% for emp in doc.addressee.all %}
+                    {{ emp.position }}{% endfor %}</p>
+
+                <p class="paragraph">Справка дана для предоставления </p>
+                <p class="under">{{ doc.doc_direction }}</p>
+            </div>
+
+            <div class="footer">
+                <h3 class="footer-position">Директор ООО «Сириус»</h3>
+                <div class="autograph">
+                    <div class="autograph-">___________________</div>
+                    <div class="name">Заугольникова Е.И</div>
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="title">
+                <h2 align="right">Директору ООО «Сириус»</h2>
+                <h2 align="right">Заугольниковой Е.И</h2>
+                <h2 align="right"> {% for emp in doc.addressee.all %}
+                    {{ emp.position }}{% endfor %}</h2>
+                <h2 align="right"> {% for emp in doc.addressee.all %}
+                    {{ emp }}{% endfor %}</h2>
+                <h2 align="center">Заявление</h2>
+            </div>
+            <div class="content">
+                <p class="paragraph">Прошу уволить меня по собственному желанию с {{ doc.date }}</p>
+
+            </div>
+            <div class="footer">
+                <h3 class="footer-position">Директор ООО «Сириус»</h3>
+                <div class="autograph">
+                    <div class="autograph-">___________________</div>
+                    <div class="name">Заугольникова Е.И</div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+

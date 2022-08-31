@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style type="text/css">
+        .container {
+            max-width: 1024px;
+            margin: auto;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .title {
+            margin-right: 10px;
+        }
+
+        .content {
+            margin-top: 50px;
+            margin-left: 10px;
+            font-size: 20px;
+
+        }
+
+        .paragraph {
+            margin-left: 20px;
+            word-spacing: 10px;
+
+        }
+
+        .under {
+            min-width: 90%;
+            border-bottom: 1px solid black;
+            padding-left: 160px;
+        }
+
+        .footer {
+            margin-top: 70px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-position {
+            margin-left: 30px;
+        }
+
+        .autograph {
+            display: flex;
+        }
+
+        .autograph- {
+            width: 110px;
+            height: 3px;
+            display: block;
+            margin-right: 60px;
+            line-height: 50px;
+        }
+
+        .name {
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+{% block content %}{% endblock %}
+</body>
+</html>
